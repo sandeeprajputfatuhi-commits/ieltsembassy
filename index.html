@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eltsembassy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2fb54f738b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+    <h2 class="title">Choose a skill you want to take test</h2>
+
+    <div class="card-wrapper">
+        
+        <div class="card">
+            <h3>Listening</h3>
+            <div class="icon">
+                <i class="fa-regular fa-headphones"></i>
+            </div>
+            <button onclick="listing()">Continue</button>
+        </div>
+
+        <div class="card">
+            <h3>Reading</h3>
+            <div class="icon">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+            <button onclick="reading()">Continue</button>
+        </div>
+
+        <div class="card">
+            <h3>Speaking</h3>
+            <div class="icon">
+                <i class="fa-solid fa-microphone"></i>
+            </div>
+            <button>Start now</button>
+        </div>
+
+        <div class="card">
+            <h3>Writing</h3>
+            <div class="icon">
+                <i class="fa-solid fa-pen"></i>
+            </div>
+            <button onclick="writing()">Continue</button>
+        </div>
+
+    </div>
+</div>
+<div id="demo"></div>
+
+<script>
+    function listing()
+    {
+        window.location.href = "listing.html";
+    }
+    function reading()
+    {
+        window.location.href = "reading.html";
+    }
+    function writing()
+    {
+        window.location.href = "writing.html";
+    }
+</script>
+</body>
+</html>

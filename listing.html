@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listing</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/2fb54f738b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container-1">
+      <div class="audio-player">
+        <button id="playBtn">
+          <i class="fa-solid fa-play"></i>
+        </button>
+
+        <span id="currentTime">00:00 / 00:00</span>
+
+        <input type="range" id="progress" value="0" />
+
+        <span id="duration">00:00</span>
+
+        <button id="speed">1x</button>
+
+        <button id="mute">
+          <i class="fa-solid fa-volume"></i>
+        </button>
+
+        <audio id="audio" src="audio.mp3"></audio>
+      </div>
+      <div class="form">
+        <h3>SECTION 1</h3>
+        <h4>1 - 10.</h4>
+        <h4>Question 1-10</h4>
+        <h4 class="cm"><i>Complete the notes below.</i></h4>
+        <h4>
+          <i>
+            <span class="cm">Write</span> ONE WORD AND/OR A NUMBER
+            <span class="cm">for each answer.</span>
+          </i>
+        </h4>
+        <form action="">
+          <h4 class="heading-4">Children’s Engineering Workshops</h4>
+          <h4 class="heading-5">Tiny Engineers (ages 4-5)</h4>
+          <h4 class="cm">Activities</h4>
+          <ul>
+            <li>
+              <span class="cm">Create a cover for an</span>
+              <span class="sr">(1)</span>
+              <span class="line">--------------------------------------</span>
+              <h4 class="toggle">Show Explanation V</h4>
+              <p class="explanation"></p>
+              <p class="cm">
+                so they can drop it from a height without breaking it.
+              </p>
+            </li>
+
+            <li>
+              <span class="cm"
+                >Take part in a competition to build the tallest</span
+              >
+              <span class="sr">(2)</span>
+              <span class="line">--------------------------------------</span>
+              <h4 class="toggle">Show Explanation V</h4>
+              <p class="explanation"></p>
+            </li>
+            <li>
+              <span class="cm">Make a</span> <span class="sr">(3)</span>
+              <span class="line">--------------------------------------</span>
+              <h4 class="toggle">Show Explanation V</h4>
+              <p class="explanation"></p>
+              <p class="cm">powered by a balloon.</p>
+            </li>
+          </ul>
+
+          <h4>Junior Engineers (ages 6-8)</h4>
+          <h4 class="cm">Activities</h4>
+          <ul>
+            <li>
+              <span class="cm">Build model cars, trucks and</span>
+              <span class="sr">(4)</span>
+              <span class="line">--------------------------------------</span>
+              <h4 class="toggle">Show Explanation V</h4>
+              <p class="explanation"></p>
+              <p class="cm">and learn how to program them so they can move.</p>
+            </li>
+            <li>
+              <span class="cm"
+                >Take part in a competition to build the longest</span
+              >
+              <span class="sr">(5)</span>
+              <span class="line">--------------------------------------</span>
+              <h4 class="toggle">Show Explanation V</h4>
+              <p class="explanation"></p>
+              <p class="cm">using card and wood.</p>
+            </li>
+
+            <li>
+              <span class="cm"> Create a short</span>
+              <span class="sr">(6)</span>
+              <span class="line">--------------------------------------</span>
+              <h4 class="toggle">Show Explanation V</h4>
+              <p class="explanation"></p>
+              <p class="cm">with special software.</p>
+            </li>
+
+            <li>
+              <span class="cm">Build,</span> <span class="sr">(7)</span>
+              <span class="line">--------------------------------------</span>
+              <h4 class="toggle">Show Explanation V</h4>
+              <p class="explanation"></p>
+              <p class="cm">. and program a humanoid robot.</p>
+            </li>
+            <li>
+              <span class="cm">Held on</span> <span class="sr">(8)</span>
+              <span class="line">--------------------------------------</span>
+              <h4 class="toggle">Show Explanation V</h4>
+              <p class="explanation"></p>
+              <p>from 10 am to 11 am</p>
+            </li>
+
+            <li>
+              <span class="cm">Building 10A</span> <span class="sr">(9)</span>
+              <span class="line">--------------------------------------</span>
+              <h4 class="toggle">Show Explanation V</h4>
+              <p class="explanation"></p>
+              <p>. Industrial Estate, Grasford</p>
+            </li>
+
+            <li>
+              <span class="cm">Plenty of</span> <span class="sr">(10)</span>
+              <span class="line">--------------------------------------</span>
+              <h4 class="toggle">Show Explanation V</h4>
+              <p class="explanation"></p>
+              <p class="cm">is available.</p>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+    <footer>
+      <div class="score-bottom" id="bottom">
+         <div class="toggle-btn" onclick="togglePlayer()">
+        ⬇
+    </div>
+        <div class="col-1">
+          <h4>Questions 1-10</h4>
+          <p><span> 0 Answered</span> <span>10 Unanswered</span></p>
+          <hr />
+          <p>Question 1-10</p>
+          <div class="circle">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>10</span>
+          </div>
+        </div>
+        <div class="col-1">
+          <h4>Questions 11-20</h4>
+          <p>0/10 questions</p>
+        </div>
+        <div class="col-1">
+          <h4>Questions 21-30</h4>
+          <p>0/10 questions</p>
+        </div>
+        <div class="col-1">
+          <h4>Questions 31-40</h4>
+          <p>0/10 questions</p>
+        </div>
+        <div class="col-1">
+          <button onclick="getAnswers()">Submit</button>
+          <button>Pause</button>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

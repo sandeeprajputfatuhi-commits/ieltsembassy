@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reding</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="reading-container">
+
+    <!-- LEFT SIDE (Passage) -->
+    <div class="left">
+        <h3>Reading Passage</h3>
+        <p>
+            This is a sample paragraph. You can read this text and find answers.
+            The workshop helps children learn engineering skills through fun activities.
+        </p>
+
+        <p>
+            Tiny engineers build simple models while junior engineers create advanced projects.
+        </p>
+    </div>
+
+    <!-- RIGHT SIDE (Questions) -->
+    <div class="right">
+        <h3>Questions 1–5</h3>
+
+        <ul>
+            <li>
+                The workshop teaches <span class="line"></span>
+            </li>
+
+            <li>
+                Tiny engineers work on <span class="line"></span>
+            </li>
+
+            <li>
+                Junior engineers create <span class="line"></span>
+            </li>
+
+            <li>
+                The activities are <span class="line"></span>
+            </li>
+
+            <li>
+                Children learn <span class="line"></span>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+      <div class="score-bottom" id="bottom">
+         <div class="toggle-btn" onclick="togglePlayer()">
+        ⬇
+    </div>
+        <div class="col-1">
+          <h4>Questions 1-10</h4>
+          <p><span> 0 Answered</span> <span>10 Unanswered</span></p>
+          <hr />
+          <p>Question 1-10</p>
+          <div class="circle">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>10</span>
+          </div>
+        </div>
+        <div class="col-1">
+          <h4>Questions 11-20</h4>
+          <p>0/10 questions</p>
+        </div>
+        <div class="col-1">
+          <h4>Questions 21-30</h4>
+          <p>0/10 questions</p>
+        </div>
+        <div class="col-1">
+          <h4>Questions 31-40</h4>
+          <p>0/10 questions</p>
+        </div>
+        <div class="col-1">
+          <button onclick="getAnswers()">Submit</button>
+          <button>Pause</button>
+        </div>
+      </div>
+    </footer>
+
+</div>
+
+<script src="script.js">
+    
+</script>
+    
+</body>
+</html>

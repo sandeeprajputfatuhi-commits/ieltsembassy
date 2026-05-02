@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Writing Page</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+
+/* MAIN CONTAINER */
+.container-3{
+    display:flex;
+    height:500px;
+    margin-top: 10px;
+}
+
+/* LEFT SIDE QUESTION */
+.left-1{
+    width:40%;
+    background:#fff;
+    padding:20px;
+    border-right:2px solid #ddd;
+    overflow:auto;
+}
+
+.left-1 h2{
+    margin-bottom:10px;
+    color:#333;
+}
+
+/* RIGHT SIDE */
+.righ-1{
+    width:60%;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+}
+
+/* WORD COUNT */
+.word-count{
+    background:#222;
+    color:#fff;
+    padding:10px;
+    border-radius:6px;
+    margin-bottom:10px;
+    width:150px;
+    text-align:center;
+}
+
+/* TEXTAREA */
+textarea{
+    flex:1;
+    width:100%;
+    padding:15px;
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    resize:none;
+}
+
+/* BUTTONS */
+.btns{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    background:#007bff;
+    color:#fff;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container-3">
+
+    <!-- LEFT SIDE QUESTION -->
+    <div class="left-1">
+        <h2>Question</h2>
+        <p id="questionBox">
+            1. Write about your daily routine in English.
+        </p>
+    </div>
+
+    <!-- RIGHT SIDE ANSWER -->
+    <div class="righ-1">
+
+        
+
+        <textarea id="answerBox" placeholder="Write your answer here..."></textarea>
+        <div class="word-count" style="margin-top: 10px;">
+            Words: <span id="wordCount">0</span>
+        </div>
+
+        <div class="btns">
+            <button onclick="prevQ()">Previous</button>
+            <button onclick="nextQ()">Next</button>
+        </div>
+
+    </div>
+
+    
+
+</div>
+
+<footer>
+      <div class="score-bottom" id="bottom">
+         <div class="toggle-btn" onclick="togglePlayer()">
+        ⬇
+    </div>
+        <div class="col-1">
+          <h4>Questions 1-10</h4>
+          <p><span> 0 Answered</span> <span>10 Unanswered</span></p>
+          <hr />
+          <p>Question 1-10</p>
+          <div class="circle">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>10</span>
+          </div>
+        </div>
+        <div class="col-1">
+          <h4>Questions 11-20</h4>
+          <p>0/10 questions</p>
+        </div>
+        <div class="col-1">
+          <h4>Questions 21-30</h4>
+          <p>0/10 questions</p>
+        </div>
+        <div class="col-1">
+          <h4>Questions 31-40</h4>
+          <p>0/10 questions</p>
+        </div>
+        <div class="col-1">
+          <button onclick="getAnswers()">Submit</button>
+          <button>Pause</button>
+        </div>
+      </div>
+    </footer>
+
+<script>
+
+// QUESTIONS ARRAY
+let questions = [
+    "1. Write about your daily routine in English.",
+    "2. Describe your favorite hobby.",
+    "3. What is your aim in life?",
+    "4. Write about your school or college."
+];
+
+let index = 0;
+
+// ELEMENTS
+let questionBox = document.getElementById("questionBox");
+let answerBox = document.getElementById("answerBox");
+let wordCount = document.getElementById("wordCount");
+
+// UPDATE WORD COUNT
+answerBox.addEventListener("input", function(){
+    let text = answerBox.value.trim();
+    let words = text === "" ? 0 : text.split(/\s+/).length;
+    wordCount.innerText = words;
+});
+
+// NEXT QUESTION
+function nextQ(){
+    if(index < questions.length - 1){
+        index++;
+        changeQuestion();
+    }
+}
+
+// PREVIOUS QUESTION
+function prevQ(){
+    if(index > 0){
+        index--;
+        changeQuestion();
+    }
+}
+
+// CHANGE QUESTION
+function changeQuestion(){
+    questionBox.innerText = questions[index];
+    answerBox.value = "";
+    wordCount.innerText = 0;
+}
+
+
+
+let answers = new Array(questions.length).fill("");
+
+
+// INIT
+loadQuestion();
+createCircles();
+
+// WORD COUNT
+answerBox.addEventListener("input", () => {
+    saveAnswer();
+    updateWordCount();
+    updateFooter();
+    updateCircle();
+});
+
+// LOAD QUESTION
+function loadQuestion(){
+    questionBox.innerText = questions[index];
+    answerBox.value = answers[index] || "";
+    updateWordCount();
+    updateFooter();
+    updateCircle();
+}
+
+// SAVE ANSWER
+function saveAnswer(){
+    answers[index] = answerBox.value;
+}
+
+// NEXT QUESTION
+function nextQ(){
+    saveAnswer();
+
+    if(index < questions.length - 1){
+        index++;
+        loadQuestion();
+    }
+}
+
+// PREVIOUS QUESTION
+function prevQ(){
+    saveAnswer();
+
+    if(index > 0){
+        index--;
+        loadQuestion();
+    }
+}
+
+// WORD COUNT
+function updateWordCount(){
+    let text = answerBox.value.trim();
+    let words = text === "" ? 0 : text.split(/\s+/).length;
+    wordCount.innerText = words;
+}
+
+// CREATE CIRCLES (NO CSS CHANGE)
+function createCircles(){
+    let circleBox = document.getElementById("circleBox");
+    if(!circleBox) return;
+
+    circleBox.innerHTML = "";
+
+    questions.forEach((q, i) => {
+        let span = document.createElement("span");
+        span.innerText = i + 1;
+
+        span.onclick = () => goToQuestion(i);
+
+        circleBox.appendChild(span);
+    });
+}
+
+// GO TO QUESTION
+function goToQuestion(i){
+    saveAnswer();
+    index = i;
+    loadQuestion();
+}
+
+// UPDATE CIRCLE STATUS
+function updateCircle(){
+    let spans = document.querySelectorAll(".circle span");
+
+    spans.forEach((span, i) => {
+        span.classList.remove("active", "done");
+
+        if(i === index){
+            span.classList.add("active");
+        }
+
+        if(answers[i] && answers[i].trim() !== ""){
+            span.classList.add("done");
+        }
+    });
+}
+
+// FOOTER UPDATE (ANSWERED / UNANSWERED)
+function updateFooter(){
+    let answered = answers.filter(a => a.trim() !== "").length;
+    let unanswered = questions.length - answered;
+
+    let answeredEl = document.getElementById("answeredCount");
+    let unansweredEl = document.getElementById("unansweredCount");
+
+    if(answeredEl) answeredEl.innerText = answered + " Answered";
+    if(unansweredEl) unansweredEl.innerText = unanswered + " Unanswered";
+}
+
+// SUBMIT BUTTON
+function getAnswers(){
+    saveAnswer();
+    console.log("Final Answers:", answers);
+    alert("Answers Submitted Successfully!");
+}
+
+// OPTIONAL PAUSE
+function pause(){
+    saveAnswer();
+    alert("Progress Saved!");
+}
+
+</script>
+
+</body>
+</html>
